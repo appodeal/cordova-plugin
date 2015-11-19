@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="com.appodeal.plugin" version="1.3.10" xmlns:android="http://schemas.android.com/apk/res/android" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+  <name>Appodeal Plugin</name>
+  <description>Appodeal Plugin</description>
+  <author>Appodeal</author>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module name="AppodealPlugin" src="www/appodeal.js">
+      <clobbers target="Appodeal"/>
+    </js-module>
+
+    <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+        <feature name="AppodealPlugin">
+          <param name="android-package" value="com.appodeal.plugin.AppodealPlugin"/>
+        </feature>
+      </config-file>
+
+      <config-file parent="/manifest" target="AndroidManifest.xml">
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      </config-file>
+
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+
+			<meta-data android:name="com.appodeal.framework" android:value="cordova" />
+			<activity android:name="com.appodeal.ads.InterstitialActivity"
+					android:configChanges="orientation|screenSize"
+					android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+			<activity android:name="com.appodeal.ads.VideoActivity"
+					android:configChanges="orientation|screenSize"
+					android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+			<activity android:name="com.appodeal.ads.LoaderActivity"
+					android:configChanges="orientation|screenSize"
+					android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+			<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+
+			<activity android:name="com.google.android.gms.ads.AdActivity"
+					android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+					android:theme="@android:style/Theme.Translucent" />
+
+			<activity android:name="com.chartboost.sdk.CBImpressionActivity" android:excludeFromRecents="true"
+					android:hardwareAccelerated="true" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+					android:configChanges="keyboardHidden|orientation|screenSize" />
+
+			<activity android:name="com.applovin.adview.AppLovinInterstitialActivity"
+					android:theme="@android:style/Theme.Translucent" />
+
+			<activity android:name="com.mopub.mobileads.MoPubActivity"
+					android:configChanges="keyboardHidden|orientation|screenSize"
+					android:theme="@android:style/Theme.Translucent" />
+			<activity android:name="com.mopub.common.MoPubBrowser"
+					android:configChanges="keyboardHidden|orientation|screenSize" />
+			<activity android:name="com.mopub.mobileads.MraidActivity"
+					android:configChanges="keyboardHidden|orientation|screenSize" />
+			<activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
+					android:configChanges="keyboardHidden|orientation|screenSize" />
+
+			<activity android:name="org.nexage.sourcekit.mraid.MRAIDBrowser"
+					android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+					android:theme="@android:style/Theme.Translucent" />
+
+			<activity android:name="com.amazon.device.ads.AdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+				  <activity android:name="ru.mail.android.mytarget.ads.MyTargetActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+
+			<activity android:name="org.nexage.sourcekit.vast.activity.VASTActivity"
+					android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+			<!--suppress AndroidDomInspection -->
+			<activity android:name="com.facebook.ads.InterstitialActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
+
+			<activity android:name="com.unity3d.ads.android.view.UnityAdsFullscreenActivity"
+					android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+					android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:hardwareAccelerated="true" />
+
+			<activity android:name="com.jirbo.adcolony.AdColonyOverlay"
+					android:configChanges="keyboardHidden|orientation|screenSize"
+					android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+			<activity android:name="com.jirbo.adcolony.AdColonyFullscreen"
+					android:configChanges="keyboardHidden|orientation|screenSize"
+					android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+			<activity android:name="com.jirbo.adcolony.AdColonyBrowser"
+					android:configChanges="keyboardHidden|orientation|screenSize"
+					android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+			<activity android:name="com.vungle.publisher.FullScreenAdActivity"
+					android:configChanges="keyboardHidden|orientation|screenSize"
+					android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+			<activity android:name="com.startapp.android.publish.list3d.List3DActivity"
+					android:theme="@android:style/Theme" />
+			<!--suppress AndroidDomInspection -->
+			<activity android:name="com.startapp.android.publish.OverlayActivity"
+					android:theme="@android:style/Theme.Translucent"
+					android:configChanges="orientation|keyboardHidden|screenSize" />
+			<!--suppress AndroidDomInspection -->
+			<activity android:name="com.startapp.android.publish.FullScreenActivity"
+					android:theme="@android:style/Theme"
+					android:configChanges="orientation|keyboardHidden|screenSize" />
+			<service android:name="com.yandex.metrica.MetricaService" android:enabled="true"
+				   android:exported="true" android:process=":Metrica">
+			<intent-filter>
+			  <category android:name="android.intent.category.DEFAULT" />
+			  <action android:name="com.yandex.metrica.IMetricaService" />
+			  <data android:scheme="metrica" />
+			</intent-filter>
+			<meta-data android:name="metrica:api:level" android:value="32" />
+			</service>
+			<receiver android:name="com.yandex.metrica.MetricaEventHandler"
+					android:enabled="true" android:exported="true">
+			<intent-filter>
+			  <action android:name="com.android.vending.INSTALL_REFERRER" />
+			</intent-filter>
+			</receiver>
+			<!--suppress AndroidDomInspection -->
+			<activity android:name="com.yandex.metrica.ads.AdActivity"
+					android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+			<activity android:name="com.inmobi.rendering.InMobiAdActivity"
+					android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+					android:theme="@android:style/Theme.Translucent.NoTitleBar" android:hardwareAccelerated="true" />
+			<receiver android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+					android:enabled="true" android:exported="true" >
+			<intent-filter>
+			  <action android:name="com.inmobi.share.id" />
+			</intent-filter>
+			</receiver>
+			<service android:enabled="true" android:name="com.inmobi.signals.activityrecognition.ActivityRecognitionManager" />
+
+        </config-file>
+
+		<source-file src="src/android/AppodealPlugin.java" target-dir="src/com/appodeal/plugin" />
+		<source-file src="libs/android-support-v4.jar" target-dir="libs" />
+		<source-file src="libs/appodeal-1.13.10.jar" target-dir="libs" />
+		<source-file src="libs/inmobi-5.0.1.jar" target-dir="libs" />
+		<source-file src="libs/yandex-metrica-android-2.00.jar" target-dir="libs" />
+		<source-file src="libs/applovin-6.1.4.jar" target-dir="libs" />
+		<source-file src="libs/chartboost-6.0.2.jar" target-dir="libs" />
+		<source-file src="libs/my-target-4.1.2.jar" target-dir="libs" />
+		<source-file src="libs/unity-ads-1.4.7.jar" target-dir="libs" />
+
+    </platform>
+
+  </plugin>

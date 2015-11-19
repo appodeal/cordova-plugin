@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hello Appodeal</title>
+</head>
+
+<body style="background-color:red;/* position: fixed; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%;*/">
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+  
+    function initialize() {
+      var appKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
+	  console.log('Cordova Appodeal Initialized fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f');
+      //Appodeal.disableNetwork("admob");
+
+      Appodeal.initialize(appKey, Appodeal.ALL);
+      Appodeal.enableInterstitialCallbacks(true);
+      Appodeal.enableVideoCallbacks(true);
+      Appodeal.enableBannerCallbacks(true);
+	  Appodeal.enableRewardedVideoCallbacks(true);
+      registerAdEvents();
+
+	}
+	
+    function show() {
+      Appodeal.show(Appodeal.INTERSTITIAL);
+    }
+
+    function video() {
+      Appodeal.show(Appodeal.VIDEO);
+    }
+	
+	function rewardedVideo() {
+      Appodeal.show(Appodeal.REWARDED_VIDEO);
+    }
+
+    function cacheVideo() {
+      Appodeal.cache(Appodeal.VIDEO);
+    }
+
+    function showBanner() {
+      Appodeal.show(Appodeal.BANNER_BOTTOM);
+    }
+
+    function showInterstitialOrVideo() {
+      Appodeal.show(Appodeal.INTERSTITIAL | Appodeal.VIDEO);
+    }
+
+    function hideBanner() {
+      Appodeal.hide(Appodeal.BANNER);
+    }
+
+    function registerAdEvents() {
+      document.addEventListener('onInterstitialShown', function() {
+        console.log('Cordova onInterstitialShown');
+      });
+      document.addEventListener('onInterstitialLoaded', function() {
+        console.log('Cordova onInterstitialLoaded');
+      });
+      document.addEventListener('onInterstitialFailedToLoad', function() {
+        console.log('Cordova onInterstitialFailedToLoad');
+      });
+      document.addEventListener('onInterstitialClosed', function() {
+		console.log('Cordova onInterstitialClosed');
+      });
+      document.addEventListener('onInterstitialClicked', function() {
+        console.log('Cordova onInterstitialClicked');
+      });
+
+      document.addEventListener('onVideoClosed', function() {
+        console.log('Cordova onVideoClosed');
+      });
+      document.addEventListener('onVideoFailedToLoad', function() {
+        console.log('Cordova onVideoFailedToLoad');
+      });
+      document.addEventListener('onVideoFinished', function() {
+        console.log('Cordova onVideoFinished');
+      });
+      document.addEventListener('onVideoLoaded', function() {
+        console.log('Cordova onVideoLoaded');
+      });
+      document.addEventListener('onVideoShown', function() {
+        console.log('Cordova onVideoShown');
+      });
+	  
+	  document.addEventListener('onRewardedVideoClosed', function() {
+        console.log('Cordova onRewardedVideoClosed');
+      });
+      document.addEventListener('onRewardedVideoFailedToLoad', function() {
+        console.log('Cordova onRewardedVideoFailedToLoad');
+      });
+      document.addEventListener('onRewardedVideoFinished', function(data) {
+      	console.log('Cordova reward:' + data.amount + ' ' + data.name);
+      });
+      document.addEventListener('onRewardedVideoLoaded', function() {
+		console.log('Cordova onRewardedVideoLoaded');
+      });
+      document.addEventListener('onRewardedVideoShown', function() {
+        console.log('Cordova onRewardedVideoShown');
+      });
+
+      document.addEventListener('onBannerClicked', function() {
+        console.log('Cordova onBannerClicked');
+      });
+      document.addEventListener('onBannerFailedToLoad', function() {
+        console.log('Cordova onBannerFailedToLoad');
+      });
+      document.addEventListener('onBannerLoaded', function() {
+        console.log('Cordova onBannerLoaded');
+      });
+      document.addEventListener('onBannerShown', function() {
+        console.log('Cordova onBannerShown');
+      });
+    }
+  </script>
+  <p style="font-size:25px;color:white;">Appodeal Cordova Plugin</p>
+  <button id="initialize" onclick="initialize();" style="width:100%;height:50px; margin-top:10px;background-color:white;color:red;">Initialize
+  </button>
+  <button id="interstitial" onclick="show();" style="width:100%;height:50px; margin-top:10px;background-color:white;color:red;">Interstitial
+  </button>
+  <button id="video" onclick="video();" style="width:100%;height:50px; margin-top:10px;background-color:white;color:red;">
+    Video
+  </button>
+  <button id="rewarded" onclick="rewardedVideo();" style="width:100%;height:50px; margin-top:10px;background-color:white;color:red;">
+    Rewarded Video
+  </button>
+  <button id="video" onclick="showInterstitialOrVideo();" style="width:100%;height:50px; margin-top:10px;background-color:white;color:red;">
+    Interstitial or Video
+  </button>
+  <button id="showBanner" onclick="showBanner();" style="width:100%;height:50px; margin-top:10px;background-color:white;color:red;">Show Banner
+  </button>
+  <button id="hideBanner" onclick="hideBanner();" style="width:100%;height:50px; margin-top:10px;background-color:white;color:red;">Hide Banner
+  </button>
+</body>
+
+</html>
