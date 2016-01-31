@@ -5,15 +5,13 @@
 	var cordova = require('cordova');
 	
 	Appodeal.INTERSTITIAL = 1;
-	Appodeal.VIDEO = 2;
+	Appodeal.SKIPPABLE_VIDEO = 2;
 	Appodeal.BANNER = 4;
 	Appodeal.BANNER_BOTTOM = 8;
 	Appodeal.BANNER_TOP    = 16;
 	Appodeal.BANNER_CENTER = 32;
-	Appodeal.BANNER_VIEW   = 64;
+	Appodeal.NON_SKIPPABLE_VIDEO = 128;
 	Appodeal.REWARDED_VIDEO = 128;
-	Appodeal.ANY = 255;
-	Appodeal.ALL = 255;
 
 	Appodeal.initialize = function(appKey, adType) {
 		exec(null, null, "AppodealPlugin", "initialize", [appKey, adType]);
@@ -23,8 +21,12 @@
 		exec(null, null, "AppodealPlugin", "enableIntertitialCallbacks", [listener]);
 	}
 
-	Appodeal.enableVideoCallbacks = function(listener) {
-		exec(null, null, "AppodealPlugin", "enableVideoCallbacks", [listener]);
+	Appodeal.enableSkippableVideoCallbacks = function(listener) {
+		exec(null, null, "AppodealPlugin", "enableSkippableVideoCallbacks", [listener]);
+	}
+
+	Appodeal.enableNonSkippableVideoCallbacks = function(listener) {
+		exec(null, null, "AppodealPlugin", "enableNonSkippableVideoCallbacks", [listener]);
 	}
 
 	Appodeal.enableBannerCallbacks = function(listener) {
@@ -57,6 +59,10 @@
 		exec(null, null, "AppodealPlugin", "hide", [adType]);
 	}
 
+	Appodeal.confirm = function(adType) {
+		exec(null, null, "AppodealPlugin", "confirm", [adType]);
+	}
+
 	Appodeal.showWithPriceFloor = function(adType, callback) {
 		exec(function(e){if(typeof callback=='function'){if(e==1){callback(true);}else{callback(false);}}}, null, "AppodealPlugin", "showWithPriceFloor", [adType]);
 	}
@@ -77,6 +83,18 @@
 		exec(null, null, "AppodealPlugin", "disableNetwork", [network]);
 	}
 
+	Appodeal.disableNetworkType = function(network, adType) {
+		exec(null, null, "AppodealPlugin", "disableNetworkType", [network, adType]);
+	}
+
 	Appodeal.disableLocationPermissionCheck = function() {
 		exec(null, null, "AppodealPlugin", "disableLocationCheck", []);
+	}
+
+	Appodeal.setLogging = function(logging) {
+		exec(null, null, "AppodealPlugin", "setLogging", [logging]);
+	}
+
+	Appodeal.setTesting = function(testing) {
+		exec(null, null, "AppodealPlugin", "setTesting", [testing]);
 	}
