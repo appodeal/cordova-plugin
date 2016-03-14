@@ -28,7 +28,6 @@ public class AppodealPlugin extends CordovaPlugin {
     private static final String ACTION_CONFIRM = "confirm";
     private static final String ACTION_SHOW = "show";
     private static final String ACTION_HIDE = "hide";
-    private static final String ACTION_SHOW_WITH_PRICE_FLOOR = "showWithPriceFloor";
     private static final String ACTION_SET_AUTO_CACHE = "setAutoCache";
     private static final String ACTION_CACHE_BANNER = "cacheBanner";
     private static final String ACTION_SET_ON_LOADED_TRIGGER_BOTH = "setOnLoadedTriggerBoth";
@@ -162,16 +161,6 @@ public class AppodealPlugin extends CordovaPlugin {
                 @Override
                 public void run() {
                     Appodeal.hide(cordova.getActivity(), adType);
-                }
-            });
-            return true;
-        } else if (action.equals(ACTION_SHOW_WITH_PRICE_FLOOR)) {
-            adType = args.getInt(0);
-            cordova.getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    boolean isShow = Appodeal.showWithPriceFloor(cordova.getActivity(), adType);
-                    callback.success(isShow ? 1 : 0);
                 }
             });
             return true;

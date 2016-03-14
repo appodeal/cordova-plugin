@@ -63,10 +63,6 @@
 		exec(null, null, "AppodealPlugin", "confirm", [adType]);
 	}
 
-	Appodeal.showWithPriceFloor = function(adType, callback) {
-		exec(function(e){if(typeof callback=='function'){if(e==1){callback(true);}else{callback(false);}}}, null, "AppodealPlugin", "showWithPriceFloor", [adType]);
-	}
-
 	Appodeal.setAutoCache = function(adType, autoCache) {
 		exec(null, null, "AppodealPlugin", "setAutoCache", [adType, autoCache]);
 	}
