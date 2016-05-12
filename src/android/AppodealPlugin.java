@@ -337,7 +337,7 @@ public class AppodealPlugin extends CordovaPlugin {
         }
 
         @Override
-        public void onSkippableVideoLoaded(boolean isPrecache) {
+        public void onSkippableVideoLoaded() {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
