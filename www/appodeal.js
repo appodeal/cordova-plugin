@@ -87,6 +87,10 @@
 		exec(null, null, "AppodealPlugin", "disableLocationCheck", []);
 	}
 
+	Appodeal.disableWriteExternalStoragePermissionCheck = function() {
+		exec(null, null, "AppodealPlugin", "disableWriteCheck", []);
+	}
+
 	Appodeal.setLogging = function(logging) {
 		exec(null, null, "AppodealPlugin", "setLogging", [logging]);
 	}

@@ -34,6 +34,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private static final String ACTION_DISABLE_NETWORK = "disableNetwork";
     private static final String ACTION_DISABLE_NETWORK_TYPE = "disableNetworkType";
     private static final String ACTION_DISABLE_LOCATION_CHECK = "disableLocationCheck";
+    private static final String ACTION_DISABLE_WRITE_CHECK = "disableWriteCheck";
     private static final String ACTION_SET_TESTING = "setTesting";
     private static final String ACTION_SET_LOGGING = "setLogging";
     
@@ -220,6 +221,14 @@ public class AppodealPlugin extends CordovaPlugin {
                 }
             });
             return true;
+        } else if (action.equals(ACTION_DISABLE_WRITE_CHECK)) {
+            cordova.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Appodeal.disableWriteExternalStoragePermissionCheck();
+                }
+            });
+            return true;
         } else if (action.equals(ACTION_SET_LOGGING)) {
             logging = args.getBoolean(0);
             cordova.getActivity().runOnUiThread(new Runnable() {
@@ -298,7 +307,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private SkippableVideoCallbacks skippableVideoListener = new SkippableVideoCallbacks() {
 
         @Override
-        public void onSkippableVideoClosed() {
+        public void onSkippableVideoClosed(boolean closed) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
@@ -328,7 +337,7 @@ public class AppodealPlugin extends CordovaPlugin {
         }
 
         @Override
-        public void onSkippableVideoLoaded() {
+        public void onSkippableVideoLoaded(boolean isPrecache) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
@@ -352,7 +361,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private NonSkippableVideoCallbacks nonSkippableVideoListener = new NonSkippableVideoCallbacks() {
 
         @Override
-        public void onNonSkippableVideoClosed() {
+        public void onNonSkippableVideoClosed(boolean closed) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
@@ -406,7 +415,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private RewardedVideoCallbacks rewardedVideoListener = new RewardedVideoCallbacks() {
 
         @Override
-        public void onRewardedVideoClosed() {
+        public void onRewardedVideoClosed(boolean closed) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
@@ -482,7 +491,7 @@ public class AppodealPlugin extends CordovaPlugin {
         }
 
         @Override
-        public void onBannerLoaded() {
+        public void onBannerLoaded(int height) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {

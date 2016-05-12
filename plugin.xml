@@ -58,7 +58,7 @@
 		    <activity android:name="com.startapp.android.publish.list3d.List3DActivity" android:theme="@android:style/Theme" />
 		    <activity android:name="com.startapp.android.publish.OverlayActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.Translucent" />
 		    <activity android:name="com.startapp.android.publish.FullScreenActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme" />
-		    <service android:name="com.yandex.metrica.MetricaService" android:enabled="true" android:exported="true" android:process=":Metrica"><intent-filter><action android:name="com.yandex.metrica.IMetricaService" /><category android:name="android.intent.category.DEFAULT" /></intent-filter><meta-data android:name="metrica:api:level" android:value="41" /></service>
+		    <service android:name="com.yandex.metrica.MetricaService" android:enabled="true" android:exported="true" android:process=":Metrica"><intent-filter><action android:name="com.yandex.metrica.IMetricaService" /><category android:name="android.intent.category.DEFAULT" /></intent-filter><meta-data android:name="metrica:api:level" android:value="44" /></service>
 		    <receiver android:name="com.yandex.metrica.MetricaEventHandler" android:enabled="true" android:exported="true"><intent-filter><action android:name="com.android.vending.INSTALL_REFERRER" /></intent-filter></receiver>
 		    <activity android:name="com.yandex.mobile.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 		    <activity android:name="com.inmobi.rendering.InMobiAdActivity" android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:hardwareAccelerated="true" android:excludeFromRecents="true" />
@@ -69,9 +69,9 @@
 
 		<source-file src="src/android/AppodealPlugin.java" target-dir="src/com/appodeal/plugin" />
 		<source-file src="libs/android-support-v4.jar" target-dir="libs" />
-		<source-file src="libs/appodeal-1.14.12.jar" target-dir="libs" />
-		<source-file src="libs/inmobi-5.2.3.jar" target-dir="libs" />
-		<source-file src="libs/yandex-metrica-2.32.jar" target-dir="libs" />
+		<source-file src="libs/appodeal-1.14.14.jar" target-dir="libs" />
+		<source-file src="libs/inmobi-5.3.0.jar" target-dir="libs" />
+		<source-file src="libs/yandex-metrica-2.41.jar" target-dir="libs" />
 		<source-file src="libs/flurry-analytics-6.2.0.jar" target-dir="libs" />
 		<source-file src="libs/applovin-6.1.5.jar" target-dir="libs" />
 		<source-file src="libs/chartboost-6.4.1.jar" target-dir="libs" />
