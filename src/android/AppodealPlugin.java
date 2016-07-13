@@ -491,7 +491,7 @@ public class AppodealPlugin extends CordovaPlugin {
         }
 
         @Override
-        public void onBannerLoaded(int height) {
+        public void onBannerLoaded(int height, boolean isPrecache) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {

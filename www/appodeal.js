@@ -9,7 +9,6 @@
 	Appodeal.BANNER = 4;
 	Appodeal.BANNER_BOTTOM = 8;
 	Appodeal.BANNER_TOP    = 16;
-	Appodeal.BANNER_CENTER = 32;
 	Appodeal.NON_SKIPPABLE_VIDEO = 128;
 	Appodeal.REWARDED_VIDEO = 128;
 
