@@ -1,5 +1,5 @@
 {
-  "version": "1.14.14",
+  "version": "2.0.0",
   "name": "com.appodeal.plugin",
   "cordova_name": "Appodeal Cordova Plugin",
   "platforms": [
@@ -23,9 +23,21 @@
     "phonegap",
     "npm",
     "ads",
-	"monetisation",
+	  "monetisation",
     "ecosystem:cordova",
     "cordova-android"
+  ],
+  "dependencies": {
+    "command-exists": "^1.0.1",
+    "semver": "^5.3.0",
+    "xml2js": "^0.4.16"
+  },
+  "bundledDependencies": [
+    "command-exists",
+    "xml2js",
+    "sax",
+    "xmlbuilder",
+    "lodash"
   ],
   "author": "Appodeal",
   "license": "APPODEAL, Inc",

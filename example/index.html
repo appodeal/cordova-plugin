@@ -11,18 +11,19 @@
   <script type="text/javascript">
   
     function initialize() {
-      var appKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
-	    Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
+      //var appKey = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
+      var appKey = "722fb56678445f72fe2ec58b2fa436688b920835405d3ca6";
+      Appodeal.confirm(Appodeal.SKIPPABLE_VIDEO);
       Appodeal.setLogging(true);
-      //Appodeal.setTesting(true);
-      Appodeal.initialize(appKey, Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER | Appodeal.REWARDED_VIDEO);
+      
+      Appodeal.initialize(appKey, Appodeal.BANNER | Appodeal.SKIPPABLE_VIDEO | Appodeal.INTERSTITIAL | Appodeal.BANNER | Appodeal.REWARDED_VIDEO);
       Appodeal.enableInterstitialCallbacks(true);
       Appodeal.enableSkippableVideoCallbacks(true);
       Appodeal.enableBannerCallbacks(true);
-	    Appodeal.enableRewardedVideoCallbacks(true);
+      Appodeal.enableRewardedVideoCallbacks(true);
       registerAdEvents();
-	  }
-	
+      }
+    
     function showInterstitial() {
       Appodeal.show(Appodeal.INTERSTITIAL);
     }
@@ -30,8 +31,8 @@
     function showSkippableVideo() {
       Appodeal.show(Appodeal.SKIPPABLE_VIDEO);
     }
-	
-	  function showRewardedVideo() {
+    
+    function showRewardedVideo() {
       Appodeal.show(Appodeal.REWARDED_VIDEO);
     }
 
@@ -58,7 +59,7 @@
         console.log('Cordova onInterstitialFailedToLoad');
       });
       document.addEventListener('onInterstitialClosed', function() {
-		console.log('Cordova onInterstitialClosed');
+        console.log('Cordova onInterstitialClosed');
       });
       document.addEventListener('onInterstitialClicked', function() {
         console.log('Cordova onInterstitialClicked');
@@ -79,34 +80,18 @@
       document.addEventListener('onSkippableVideoShown', function() {
         console.log('Cordova onSkippableVideoShown');
       });
-
-      document.addEventListener('onNonSkippableVideoClosed', function() {
-        console.log('Cordova onNonSkippableVideoClosed');
-      });
-      document.addEventListener('onNonSkippableVideoFailedToLoad', function() {
-        console.log('Cordova onNonSkippableVideoFailedToLoad');
-      });
-      document.addEventListener('onNonSkippableVideoFinished', function() {
-        console.log('Cordova onNonSkippableVideoFinished');
-      });
-      document.addEventListener('onNonSkippableVideoLoaded', function() {
-        console.log('Cordova onNonSkippableVideoLoaded');
-      });
-      document.addEventListener('onNonSkippableVideoShown', function() {
-        console.log('Cordova onNonSkippableVideoShown');
-      });
-	  
-	    document.addEventListener('onRewardedVideoClosed', function() {
+      
+      document.addEventListener('onRewardedVideoClosed', function() {
         console.log('Cordova onRewardedVideoClosed');
       });
       document.addEventListener('onRewardedVideoFailedToLoad', function() {
         console.log('Cordova onRewardedVideoFailedToLoad');
       });
       document.addEventListener('onRewardedVideoFinished', function(data) {
-      	console.log('Cordova reward:' + data.amount + ' ' + data.name);
+        console.log('Cordova reward:' + data.amount + ' ' + data.name);
       });
       document.addEventListener('onRewardedVideoLoaded', function() {
-		    console.log('Cordova onRewardedVideoLoaded');
+        console.log('Cordova onRewardedVideoLoaded');
       });
       document.addEventListener('onRewardedVideoShown', function() {
         console.log('Cordova onRewardedVideoShown');

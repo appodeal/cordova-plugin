@@ -18,7 +18,7 @@ import com.appodeal.ads.NonSkippableVideoCallbacks;
 public class AppodealPlugin extends CordovaPlugin {
 
     private static final String ACTION_INIT_APPODEAL = "initialize";
-    private static final String ACTION_SET_INTERSTITIAL_CALLBACKS = "enableIntertitialCallbacks";
+    private static final String ACTION_SET_INTERSTITIAL_CALLBACKS = "enableInterstitialCallbacks";
     private static final String ACTION_SET_SKIPPABLE_VIDEO_CALLBACKS = "enableSkippableVideoCallbacks";
     private static final String ACTION_SET_NON_SKIPPABLE_VIDEO_CALLBACKS = "enableNonSkippableVideoCallbacks";
     private static final String ACTION_SET_BANNER_CALLBACKS = "enableBannerCallbacks";
@@ -29,7 +29,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private static final String ACTION_SHOW = "show";
     private static final String ACTION_HIDE = "hide";
     private static final String ACTION_SET_AUTO_CACHE = "setAutoCache";
-    private static final String ACTION_CACHE_BANNER = "cacheBanner";
+    private static final String ACTION_CACHE = "cache";
     private static final String ACTION_SET_ON_LOADED_TRIGGER_BOTH = "setOnLoadedTriggerBoth";
     private static final String ACTION_DISABLE_NETWORK = "disableNetwork";
     private static final String ACTION_DISABLE_NETWORK_TYPE = "disableNetworkType";
@@ -37,6 +37,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private static final String ACTION_DISABLE_WRITE_CHECK = "disableWriteCheck";
     private static final String ACTION_SET_TESTING = "setTesting";
     private static final String ACTION_SET_LOGGING = "setLogging";
+    private static final String ACTION_SET_SMARTBANNERS = "setSmartBanners";
     
     private String appKey = null;
     private int adType = 0;
@@ -49,6 +50,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private boolean setBannerCallbacks = false;
     private boolean testing = false;
     private boolean logging = false;
+    private boolean smartbanners = false;
 
     @Override
     public boolean execute(String action, JSONArray args,
@@ -175,7 +177,7 @@ public class AppodealPlugin extends CordovaPlugin {
                 }
             });
             return true;
-        } else if (action.equals(ACTION_CACHE_BANNER)) {
+        } else if (action.equals(ACTION_CACHE)) {
             adType = args.getInt(0);
             cordova.getActivity().runOnUiThread(new Runnable() {
                 @Override
@@ -247,6 +249,15 @@ public class AppodealPlugin extends CordovaPlugin {
                 }
             });
             return true;
+        } else if (action.equals(ACTION_SET_SMARTBANNERS)) {
+            smartbanners = args.getBoolean(0);
+            cordova.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Appodeal.setSmartBanners(smartbanners);
+                }
+            });
+            return true;
         }
         return false;
     }
@@ -307,7 +318,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private SkippableVideoCallbacks skippableVideoListener = new SkippableVideoCallbacks() {
 
         @Override
-        public void onSkippableVideoClosed(boolean closed) {
+        public void onSkippableVideoClosed(boolean finished) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
@@ -361,7 +372,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private NonSkippableVideoCallbacks nonSkippableVideoListener = new NonSkippableVideoCallbacks() {
 
         @Override
-        public void onNonSkippableVideoClosed(boolean closed) {
+        public void onNonSkippableVideoClosed(boolean finished) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
@@ -415,7 +426,7 @@ public class AppodealPlugin extends CordovaPlugin {
     private RewardedVideoCallbacks rewardedVideoListener = new RewardedVideoCallbacks() {
 
         @Override
-        public void onRewardedVideoClosed(boolean closed) {
+        public void onRewardedVideoClosed(boolean finished) {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
