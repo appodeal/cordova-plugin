@@ -19,6 +19,18 @@ For Android You don't need to make something additional.
 iOS SDK binnary is very heavy and we can't upload it to git or npm registry. We found a solution via cocoa pods.
 Thats why iOS platform requires cocoa pods installed on your mac.
 
+Requirements:
+
+For iOS:
+
++ Mac OS based workstation
++ Cocoa pods installed on your Mac [this](https://guides.cocoapods.org/using/getting-started.html) guide to install it)
++ XCode environment
+ 
+For Android:
+
++ Android SDK installed
+
 After installation run:
 
     cordova platform update ios
