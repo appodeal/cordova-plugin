@@ -24,7 +24,7 @@ Thats why iOS platform requires cocoa pods installed on your mac.
 ####For iOS:
 
 + Mac OS based workstation
-+ Cocoa pods installed on your Mac [this](https://guides.cocoapods.org/using/getting-started.html) guide to install it)
++ Cocoa pods installed on your Mac (follow [this](https://guides.cocoapods.org/using/getting-started.html) guide to install it)
 + XCode environment
  
 ####For Android:
