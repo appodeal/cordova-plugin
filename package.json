@@ -1,5 +1,5 @@
 {
-  "version": "1.15.7",
+  "version": "2.1.11",
   "name": "com.appodeal.plugin",
   "cordova_name": "Appodeal Cordova Plugin",
   "platforms": [
@@ -22,8 +22,7 @@
     "phonegap",
     "npm",
     "ads",
-	  "monetisation",
-    "ecosystem:cordova",
+	  "monetization",
     "cordova-android"
   ],
   "author": "Appodeal",
